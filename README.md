@@ -40,7 +40,7 @@ will be smart extracted to
 ~/foo/bar3.txt
 ```
 
-For `~c.zip`, and its content
+For `~/c.zip`, and its content
 ```
 ~/b.zip/foo1.txt
 ~/b.zip/foo2.txt
