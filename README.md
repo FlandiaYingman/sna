@@ -6,6 +6,13 @@ SNA stands for "SNA's not archiver".
 
 This is a project for me to study and learn and practice Rust. I expect it can, and will work stable. Since it doesn't do the actual extract job, instead it calls up an installed archiver software and delegates the job, I wish that I will complete it sucessfully as a Rust beginner.
 
+## Targets: Archiver to Support
+
+- [ ] 7-Zip
+- [ ] 7-Zip zstd
+- [ ] NanaZip
+- [ ] ...
+
 ## What is "Smart Extract"? 
 
 "Smart Extract" works as follows: 
