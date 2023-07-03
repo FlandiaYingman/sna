@@ -4,6 +4,12 @@ An external tool to add "Extract Here (Smart)" on Windows.
 
 SNA stands for "SNA's not an archiver". Since it calls 7-Zip's command line for extraction.
 
+An installer is provided to help install SNA. It also adds "Extract Here (Smart)" to the context menu of archive files.
+
+Note that 7-Zip must be installed on the machine and its binaries must be included in PATH.
+If you do not know how to do this,
+just install [NanaZip](https://apps.microsoft.com/store/detail/nanazip/9N8G7TSCL18R) from Windows Store.
+
 ## What is "Extract Here (Smart)"?
 
 "Smart Extract" works as follows:
