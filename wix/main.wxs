@@ -128,6 +128,32 @@
             </Directory>
         </Directory>
 
+        <DirectoryRef Id="TARGETDIR">
+            <Component Id="RegistryEntries" Guid="*">
+                <RegistryKey Root="HKLM" Key="SOFTWARE\Classes\SystemFileAssociations\.zip\shell\extract">
+                    <RegistryValue Type="string" Value="Extract Here (Smart)"/>
+                    <RegistryValue Type="string" Name="Icon" Value="[!exe0],0"/>
+                    <RegistryKey Key="Command">
+                        <RegistryValue Type="string" Value="&quot;[!exe0]&quot; &quot;%1&quot;"/>
+                    </RegistryKey>
+                </RegistryKey>
+                <RegistryKey Root="HKLM" Key="SOFTWARE\Classes\SystemFileAssociations\.rar\shell\extract">
+                    <RegistryValue Type="string" Value="Extract Here (Smart)"/>
+                    <RegistryValue Type="string" Name="Icon" Value="[!exe0],0"/>
+                    <RegistryKey Key="Command">
+                        <RegistryValue Type="string" Value="&quot;[!exe0]&quot; &quot;%1&quot;"/>
+                    </RegistryKey>
+                </RegistryKey>
+                <RegistryKey Root="HKLM" Key="SOFTWARE\Classes\SystemFileAssociations\.7z\shell\extract">
+                    <RegistryValue Type="string" Value="Extract Here (Smart)"/>
+                    <RegistryValue Type="string" Name="Icon" Value="[!exe0],0"/>
+                    <RegistryKey Key="Command">
+                        <RegistryValue Type="string" Value="&quot;[!exe0]&quot; &quot;%1&quot;"/>
+                    </RegistryKey>
+                </RegistryKey>
+            </Component>
+        </DirectoryRef>
+
         <Feature
             Id='Binaries'
             Title='Application'
@@ -152,6 +178,14 @@
                 Level='1'
                 Absent='allow'>
                 <ComponentRef Id='Path'/>
+            </Feature>
+            <Feature
+                Id='RegistryEntries'
+                Title='"Extract Here (Smart)" Context Menu Option'
+                Description='Register "Extract Here (Smart)" to the Context Menu of Archives.'
+                Level='1'
+                Absent='allow'>
+                <ComponentRef Id='RegistryEntries'/>
             </Feature>
         </Feature>
 
