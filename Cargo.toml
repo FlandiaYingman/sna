@@ -2,6 +2,12 @@
 name = "sna"
 version = "1.0.0"
 edition = "2021"
+authors = ["Flandia Yingman"]
+description = "An external tool to add \"Extract Here (Smart)\" on Windows."
+license = "MIT"
+homepage = "https://github.com/FlandiaYingman/sna"
+repository = "https://github.com/FlandiaYingman/sna"
+documentation = "https://github.com/FlandiaYingman/sna"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
