@@ -1,4 +1,7 @@
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
 use std::{fs, path::Path, process::Command};
+use std::os::windows::process::CommandExt;
 
 use Root::{Multiple, Single, Zero};
 
@@ -6,6 +9,12 @@ const EXEC_PATH_CMD: &str = "7z.exe";
 const EXEC_PATH_GUI: &str = "7zg.exe";
 
 const OUTPUT_PATH: &str = "Path = ";
+
+// Constant can be found in `winapi` or `windows` crates as well
+//
+// List of all process creation flags:
+// https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags
+const CREATE_NO_WINDOW: u32 = 0x08000000; // Or `134217728u32`
 
 enum Root {
     Zero,
@@ -54,6 +63,7 @@ fn probe(archive_path: &Path) -> Root {
         // -slt : show technical information for l command
         // -sccUTF-8 : set charset for for console input/output
         .args(["l", "-slt", "-sccUTF-8", archive_path_str])
+        .creation_flags(CREATE_NO_WINDOW)
         .output()
         .unwrap_or_else(|err| panic!("process should exit successfully: {}", err));
 
@@ -86,6 +96,7 @@ fn extract(archive_path: &Path, destination_path: &Path) {
         // x : eXtract files with full paths
         // -o{Directory} : set Output directory
         .args(["x", format!("-o{}", destination_path_str).as_str(), archive_path_str])
+        .creation_flags(CREATE_NO_WINDOW)
         .status()
         .unwrap_or_else(|err| panic!("7z GUI {} should be executed successfully: {}", EXEC_PATH_GUI, err));
 }
