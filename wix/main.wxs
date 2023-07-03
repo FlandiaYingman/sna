@@ -105,16 +105,6 @@
                     </Component>
                     
                     <Directory Id='Bin' Name='bin'>
-                        <Component Id='Path' Guid='EFBF6437-A46C-41AF-B419-E19DEC164B71' KeyPath='yes'>
-                            <Environment
-                                Id='PATH'
-                                Name='PATH'
-                                Value='[Bin]'
-                                Permanent='no'
-                                Part='last'
-                                Action='set'
-                                System='yes'/>
-                        </Component>
                         <Component Id='binary0' Guid='*'>
                             <File
                                 Id='exe0'
@@ -171,14 +161,6 @@
             
             <ComponentRef Id='binary0'/>
 
-            <Feature
-                Id='Environment'
-                Title='PATH Environment Variable'
-                Description='Add the install location of the [ProductName] executable to the PATH system environment variable. This allows the [ProductName] executable to be called from any location.'
-                Level='1'
-                Absent='allow'>
-                <ComponentRef Id='Path'/>
-            </Feature>
             <Feature
                 Id='RegistryEntries'
                 Title='"Extract Here (Smart)" Context Menu Option'
